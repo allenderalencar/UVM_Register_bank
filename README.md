@@ -4,7 +4,7 @@ This repository has the project of verification team of Federal University of Ca
 
 ## Getting Started
 
-git clone https://github.com/allenderalencar/UVM_Register_bank
+git clone https://github.com/allenderalencar/UVM_Register_bank.git
 
 ### Prerequisites
 
