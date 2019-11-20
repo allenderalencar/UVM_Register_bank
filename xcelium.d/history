@@ -1,0 +1,5 @@
+//
+// File created by:  xrun
+// Do not modify this file
+
+s1::(20Nov2019:19:55:34):( xrun -64bit -uvm ./tb/pkg.sv ./tb/interface_if.sv ./rtl/datapath.sv ./rtl/ula.sv ./rtl/rb.sv ./rtl/mux.sv ./tb/top.sv -sv_lib ./tb/test.so +UVM_TESTNAME=test -covtest test -access +r -input ./shm.tcl +uvm_set_config_int=*,recording_detail,1 -coverage all -covoverwrite )

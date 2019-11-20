@@ -1,0 +1,210 @@
+xrun(64): 18.09-s011: (c) Copyright 1995-2019 Cadence Design Systems, Inc.
+TOOL:	xrun(64)	18.09-s011: Started on Nov 20, 2019 at 19:55:34 -03
+xrun
+	-64bit
+	-uvm
+	./tb/pkg.sv
+	./tb/interface_if.sv
+	./rtl/datapath.sv
+	./rtl/ula.sv
+	./rtl/rb.sv
+	./rtl/mux.sv
+	./tb/top.sv
+	-sv_lib ./tb/test.so
+	+UVM_TESTNAME=test
+	-covtest test
+	-access +r
+	-input ./shm.tcl
+	+uvm_set_config_int=*,recording_detail,1
+	-coverage all
+	-covoverwrite
+
+   User defined plus("+") options:
+	+uvm_set_config_int=*,recording_detail,1
+
+Compiling UVM packages (uvm_pkg.sv cdns_uvm_pkg.sv) using uvmhome location /usr/local/cds/XCELIUM1809/tools/methodology/UVM/CDNS-1.1d
+file: ./tb/pkg.sv
+`include "./transaction_in.sv"
+                             |
+xmvlog: *E,COFILX (./tb/pkg.sv,5|29): cannot open include file './transaction_in.sv'.
+`include "./transaction_out.sv"
+                              |
+xmvlog: *E,COFILX (./tb/pkg.sv,6|30): cannot open include file './transaction_out.sv'.
+`include "./sequence_in.sv"
+                          |
+xmvlog: *E,COFILX (./tb/pkg.sv,7|26): cannot open include file './sequence_in.sv'.
+`include "./driver_in.sv"
+                        |
+xmvlog: *E,COFILX (./tb/pkg.sv,9|24): cannot open include file './driver_in.sv'.
+`include "./driver_out.sv"
+                         |
+xmvlog: *E,COFILX (./tb/pkg.sv,10|25): cannot open include file './driver_out.sv'.
+`include "./monitor_in.sv"
+                         |
+xmvlog: *E,COFILX (./tb/pkg.sv,11|25): cannot open include file './monitor_in.sv'.
+`include "./monitor_out.sv"
+                          |
+xmvlog: *E,COFILX (./tb/pkg.sv,12|26): cannot open include file './monitor_out.sv'.
+`include "./agent_in.sv"
+                       |
+xmvlog: *E,COFILX (./tb/pkg.sv,13|23): cannot open include file './agent_in.sv'.
+`include "./agent_out.sv"
+                        |
+xmvlog: *E,COFILX (./tb/pkg.sv,14|24): cannot open include file './agent_out.sv'.
+`include "./refmod.sv"
+                     |
+xmvlog: *E,COFILX (./tb/pkg.sv,16|21): cannot open include file './refmod.sv'.
+`include "./cov.sv"
+                  |
+xmvlog: *E,COFILX (./tb/pkg.sv,17|18): cannot open include file './cov.sv'.
+`include "./scoreboard.sv"
+                         |
+xmvlog: *E,COFILX (./tb/pkg.sv,18|25): cannot open include file './scoreboard.sv'.
+`include "./env.sv"
+                  |
+xmvlog: *E,COFILX (./tb/pkg.sv,19|18): cannot open include file './env.sv'.
+`include "./test.sv" 
+                   |
+xmvlog: *E,COFILX (./tb/pkg.sv,20|19): cannot open include file './test.sv'.
+	package worklib.exemplo_soma_pkg:sv
+		errors: 14, warnings: 0
+file: ./tb/interface_if.sv
+	logic   [15:0] A​;
+	                |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,5|17): non-printable character (0xe2) ignored.
+	logic   [15:0] A​;
+	                 |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,5|18): non-printable character (0x80) ignored.
+	logic   [15:0] A​;
+	                  |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,5|19): non-printable character (0x8b) ignored.
+  	logic   [15:0] data_in​;
+  	                      |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,6|25): non-printable character (0xe2) ignored.
+  	logic   [15:0] data_in​;
+  	                       |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,6|26): non-printable character (0x80) ignored.
+  	logic   [15:0] data_in​;
+  	                        |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,6|27): non-printable character (0x8b) ignored.
+ 	logic   [1:0]  addr​;
+ 	                   |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,7|21): non-printable character (0xe2) ignored.
+ 	logic   [1:0]  addr​;
+ 	                    |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,7|22): non-printable character (0x80) ignored.
+ 	logic   [1:0]  addr​;
+ 	                     |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,7|23): non-printable character (0x8b) ignored.
+  	logic   [1:0]  reg_sel​;
+  	                      |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,8|25): non-printable character (0xe2) ignored.
+  	logic   [1:0]  reg_sel​;
+  	                       |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,8|26): non-printable character (0x80) ignored.
+  	logic   [1:0]  reg_sel​;
+  	                        |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,8|27): non-printable character (0x8b) ignored.
+  	logic   [1:0]  instru​;
+  	                     |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,9|24): non-printable character (0xe2) ignored.
+  	logic   [1:0]  instru​;
+  	                      |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,9|25): non-printable character (0x80) ignored.
+  	logic   [1:0]  instru​;
+  	                       |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,9|26): non-printable character (0x8b) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                 |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|50): non-printable character (0xe2) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                  |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|51): non-printable character (0x80) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                   |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|52): non-printable character (0x8b) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                          |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|59): non-printable character (0xe2) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                           |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|60): non-printable character (0x80) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                            |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|61): non-printable character (0x8b) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                                      |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|71): non-printable character (0xe2) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                                       |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|72): non-printable character (0x80) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                                        |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|73): non-printable character (0x8b) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                                                 |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|82): non-printable character (0xe2) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                                                  |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|83): non-printable character (0x80) ignored.
+	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	                                                                                   |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,13|84): non-printable character (0x8b) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                          |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|43): non-printable character (0xe2) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                           |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|44): non-printable character (0x80) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                            |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|45): non-printable character (0x8b) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                   |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|52): non-printable character (0xe2) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                    |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|53): non-printable character (0x80) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                     |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|54): non-printable character (0x8b) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                               |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|64): non-printable character (0xe2) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                                |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|65): non-printable character (0x80) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                                 |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|66): non-printable character (0x8b) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                                                  |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|83): non-printable character (0xe2) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                                                   |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|84): non-printable character (0x80) ignored.
+	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	                                                                                    |
+xmvlog: *W,NONPRT (./tb/interface_if.sv,14|85): non-printable character (0x8b) ignored.
+	interface worklib.interface_if:sv
+		errors: 0, warnings: 39
+file: ./rtl/datapath.sv
+	module worklib.datapath:sv
+		errors: 0, warnings: 0
+file: ./rtl/ula.sv
+	module worklib.ula:sv
+		errors: 0, warnings: 0
+file: ./rtl/rb.sv
+	module worklib.rb:sv
+		errors: 0, warnings: 0
+file: ./rtl/mux.sv
+	module worklib.mux:sv
+		errors: 0, warnings: 0
+file: ./tb/top.sv
+	import 		pkg::*;
+	       		  |
+xmvlog: *E,NOPBIND (./tb/top.sv,4|12): Package pkg could not be bound.
+	module worklib.top:sv
+		errors: 1, warnings: 0
+xrun: *E,VLGERR: An error occurred during parsing.  Review the log file for errors with the code *E and fix those identified problems to proceed.  Exiting with code (status 1).
+TOOL:	xrun(64)	18.09-s011: Exiting on Nov 20, 2019 at 19:55:37 -03  (total: 00:00:03)

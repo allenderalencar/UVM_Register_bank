@@ -1,5 +1,5 @@
-IFS = ./tb/interface_in.sv \
-./tb/interface_out.sv
+IFS = ./tb/interface_if.sv 
+
 
 PKGS = ./tb/pkg.sv
 
@@ -8,7 +8,8 @@ RTL = ./rtl/datapath.sv \
 ./rtl/rb.sv \
 ./rtl/mux.sv 
 
-RUN_ARGS_COMMON = -access +r -input 								+uvm_set_config_int=*,recording_detail,1 -coverage all -covoverwrite
+RUN_ARGS_COMMON = -access +r -input ./shm.tcl \
+     	          +uvm_set_config_int=*,recording_detail,1 -coverage all -covoverwrite
 
 sim: clean
 	g++ -g -fPIC -Wall -std=c++0x ./tb/refmod.cpp -shared -o ./tb/test.so
