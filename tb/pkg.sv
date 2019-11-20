@@ -17,7 +17,8 @@ package exemplo_soma_pkg;
 `include "./cov.sv"
 `include "./scoreboard.sv"
 `include "./env.sv"
-`include "./test.sv" //SE LIGUE SA SEQUÊNCIA QUE SÃO COLOCADOS !!!!!!!!! 
-								  //SE ALGUEM CHAMA ALGO, ESSE ALGO DEVE ESTAR ACIMA DESSE ALGUEM !!!!!!
+`include "./test.sv" 
+//Attetion, the sequence should be done with dependencies 
+//To be refenrencied, it shoud be instantiated before
 
 endpackage : exemplo_soma_pkg
