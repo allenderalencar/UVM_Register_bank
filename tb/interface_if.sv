@@ -1,4 +1,4 @@
-interface interface_in(input clk_ula, rst);
+interface interface_if(input clk_ula, rst);
 
 	logic   valid_ula;
   	logic   valid_reg;

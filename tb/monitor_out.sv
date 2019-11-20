@@ -6,15 +6,20 @@ class monitor_out extends uvm_monitor;
 	event begin_record, end_record;
 	
 	uvm_analysis_port #(transaction_out) mon_out_tr_analysis_port; 
-										// NomeDoModulo_NomeDaTransacao_tr_NomeDaPorta
-
+	
+	// NomeDoModulo_NomeDaTransacao_tr_NomeDaPorta
+//===================================================================
+//FACTORY
+//===================================================================
 	`uvm_component_utils(monitor_out)
 
 	function new(string name, uvm_component parent);
         super.new(name, parent);
         mon_out_tr_analysis_port = new("mon_out_tr_analysis_port", this);
     endfunction
-
+//===================================================================
+//BUILD PHASE
+//===================================================================
     virtual function void build_phase (uvm_phase phase);
 		super.build_phase(phase);
 		assert (uvm_config_db#(interface_vif)::get(this, "", "vif", vif))
@@ -22,7 +27,9 @@ class monitor_out extends uvm_monitor;
 
 		tr = transaction_out::type_id::create("tr",this);	
 	endfunction : build_phase
-
+//===================================================================
+//RUN PHASE
+//===================================================================
 	virtual task run_phase(uvm_phase phase);
 		super.run_phase (phase);
 		fork
@@ -30,7 +37,9 @@ class monitor_out extends uvm_monitor;
 			record_tr();
 		join
 	endtask : run_phase
-
+//===================================================================
+//MONITORAMENTO
+//===================================================================
 	virtual task monitoramento();
 		forever
 		begin
@@ -41,7 +50,9 @@ class monitor_out extends uvm_monitor;
 			mon_out_tr_analysis_port.write(tr);
 		end
 	endtask : monitoramento
-
+//===================================================================
+//RECORD
+//===================================================================
 	virtual task record_tr();
 		forever 
 		begin 	
