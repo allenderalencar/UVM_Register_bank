@@ -9,6 +9,7 @@ class cov extends uvm_component;
   int limite;
 
  // ==========================  COBERTURA DAS RESPOSTAS =====================================
+  
   covergroup resp_cover;
     option.per_instance = 1;
     option.at_least = 1;
@@ -16,7 +17,9 @@ class cov extends uvm_component;
       bins pode[] = {[0:$]};
     }
   endgroup // resp_cover
-
+  
+  //covergroup 
+  
   function new(string name = "subscriber", uvm_component parent= null);
     super.new(name, parent);
     resp_port   = new("resp_port", this);
