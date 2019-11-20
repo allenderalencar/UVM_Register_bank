@@ -1,9 +1,9 @@
 
-class _cover extends uvm_component;
+class cov extends uvm_component;
 
-  `uvm_component_utils(_cover)
+  `uvm_component_utils(cov)
   transaction_out resp;
-  uvm_analysis_imp#(transaction_out, _cover) resp_port;
+  uvm_analysis_imp#(transaction_out, cov) resp_port;
 
   int cont = 0;
   int limite;
@@ -46,4 +46,4 @@ class _cover extends uvm_component;
     if(($get_coverage() == 100) || (cont == limite))
       running_phase.drop_objection(this);
   endfunction: write
-endclass : exemplo_soma_cover
+endclass : cov
