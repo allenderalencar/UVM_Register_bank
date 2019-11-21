@@ -1,4 +1,4 @@
-class sequence extends uvm_sequence #(transaction_in);
+class bank_sequence extends uvm_sequence #(transaction_in);
     `uvm_object_utils(sequence)
 
     function new(string name="sequence");
