@@ -1,4 +1,4 @@
-class Scoreboard extends uvm_scoreboard;
+class scoreboard extends uvm_scoreboard;
 
   typedef transaction_in tr_i;
   typedef transaction_out tr_o;
