@@ -16,4 +16,4 @@ class bank_sequence extends uvm_sequence #(transaction_in);
             finish_item(tr);
         end
     endtask: body
-endclass: sequence
+endclass: 
