@@ -1,7 +1,7 @@
 IFS = ./tb/interface_if.sv 
 
 
-PKGS = ./tb/pkg.sv
+PKGS = ./tb/bank_pkg.sv
 
 RTL = ./rtl/datapath.sv \
 ./rtl/ula.sv \

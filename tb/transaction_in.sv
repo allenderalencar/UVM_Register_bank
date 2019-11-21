@@ -23,11 +23,7 @@ class transaction_in extends uvm_sequence_item;
 //PRINT
 //===================================================================
   function string convert2string();
-    return $sformatf("{A = %d},
-      {data_in​ = %d},
-      {addr = %d},
-      {reg_sel​ = %d},
-      {instru = %d}", A, data_in​, addr, reg_sel​, instru);
+    return $sformatf("{A = %d}, {data_in​ = %d}, {addr = %d}, {reg_sel​ = %d}, {instru = %d}", A, data_in​, addr, reg_sel​, instru);
   endfunction
 
 endclass

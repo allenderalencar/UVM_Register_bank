@@ -1,7 +1,8 @@
 module top;
 
 	import 		uvm_pkg::*;
-	import 		pkg::*;
+	`include "uvm_macros.svh"
+	import 		bank_pkg::*;
 	parameter 	min_trans = 100;
 
 	logic clk;
