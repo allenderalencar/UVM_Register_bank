@@ -1,6 +1,6 @@
 class test extends uvm_test;
   env env;
-  sequence seq;
+  bank_sequence seq;
 
 //===================================================================
 //FACTORY
