@@ -1,4 +1,4 @@
-class exemplo_soma_agent_o extends uvm_agent;
+class agent_out extends uvm_agent;
 	`uvm_component_param_utils(agent_out)
 
 	typedef transaction_out transaction_type;
