@@ -1,4 +1,4 @@
-typedef virtual interface_in interface_vif;
+typedef virtual interface_if interface_vif;
 
 class driver_in extends uvm_driver #(transaction_in);
     `uvm_component_utils(driver_in)
