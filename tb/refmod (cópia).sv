@@ -35,23 +35,10 @@ class refmod extends uvm_component;
 //======================= Run Phase (Inicia as tasks) ======================================
   virtual task run_phase(uvm_phase phase);
     super.run_phase(phase);
-forever begin
-    @begin_refmodtask;
-    tr_out = tr_type_out::type_id::create("tr_out", this);
-
-    B = registradores[tr_in.reg_sel​]; //Seleção do regsitrador usado na ULA
-    registradores[tr_in.addr] = tr_in.data_in​; //Escrita dos registradores
-    
-    $display("A​ : %h data_in​ : %h addr​ : %h reg_sel​ : %h instru​ : %h ", tr_in.dt_A​, tr_in.data_in​, tr_in.addr​, tr_in.reg_sel​, tr_in.instru​); //Mostra os dados durante a execução
-        
-    begin_tr(tr_out, "rfm"); //waveform da tr_out
-    tr_out.data_out_o = logica_ula(tr_in.dt_A, B, tr_in.instru);
-    end_tr(tr_out);
-    
-    $display("data_out : %h", tr_out.data_out_o);
-
-    refmod_ula_o_tr_analysis_port.write(tr_out);
-  end
+    fork
+      refmod_task();
+      record_tr_out();
+    join
   endtask: run_phase
 
 //============ Função para copiar transações do agent ======================
@@ -59,15 +46,52 @@ forever begin
   virtual function write ( tr_type_in t);
     tr_in = tr_type_in::type_id::create("tr_in", this);
     tr_in.copy(t);
-    ->begin_refmodtask;
+    tr_out = tr_type_out::type_id::create("tr_out", this);
+
+    registradores[tr_in.addr] = tr_in.data_in​; //Escrita dos registradores
+    B = registradores[tr_in.reg_sel​]; //Seleção do regsitrador usado na ULA
+    
+    $display("A​ : %h data_in​ : %h addr​ : %h reg_sel​ : %h instru​ : %h ", tr_in.dt_A​, tr_in.data_in​, tr_in.addr​, tr_in.reg_sel​, tr_in.instru​); //Mostra os dados durante a execução
+    /* 
+    begin_tr(tr_out, "refmod"); //waveform da tr_out
+    tr_out.data_out_o = logica_ula(tr_in.dt_A, B, tr_in.instru);
+    end_tr(tr_out);
+    */
+    $display("data_out : %h", tr_out.data_out_o);
+
+    refmod_ula_o_tr_analysis_port.write(tr_out);
+
   endfunction
 
+  //============ Função para analisar leitura/escrita ========================
+  task refmod_task();
+    forever 
+    begin
+      @begin_refmodtask;
+      tr_out = tr_type_out::type_id::create("tr_out", this);
+      -> begin_record;
+        tr_out.data_out_o = logica_ula(tr_in.dt_A, B, tr_in.instru​);
+      -> end_record;
+      refmod_exemplo_soma_o_tr_analysis_port.write(tr_out);
+    end
+  endtask
 
-  //================ Faltou o reset  ======
+//================= Função para gravar as transações ========================
+  virtual task record_tr_out();
+    forever begin
+      @(begin_record);
+      begin_tr(tr_out, "refmod");
+      @(end_record);
+      end_tr(tr_out);
+    end
+  endtask
+
+//================ Faltou o reset  ======
   function ula_reset();
     registradores[0] <= 16'hC4F3;
     registradores[1] <= 16'hB45E;
     registradores[2] <= 16'hD1E5;
     registradores[3] <= 16'h1DE4;
   endfunction
+
 endclass

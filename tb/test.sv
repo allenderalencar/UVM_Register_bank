@@ -23,9 +23,6 @@ class test extends uvm_test;
 //RUN PHASE
 //===================================================================
   task run_phase(uvm_phase phase);
-    fork
-      seq.start(envir.agt_in.sqr);
-    join
+    seq.start(envir.agt_in.sqr);
   endtask: run_phase
-
 endclass

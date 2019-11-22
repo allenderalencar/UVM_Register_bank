@@ -60,13 +60,14 @@ class driver_in extends uvm_driver #(transaction_in);
 //===================================================================
     virtual task driver_transfer(transaction_in tr);
         @(posedge vif.clk);
-        $display("",);
-        vif.A         <= tr.dt_A;
-        vif.valid_ula <= '1;
-
-        //////////////////////////////
-        ///continuar isso aqui taok///
-        //////////////////////////////
+            vif.A         <= tr.dt_A;
+            vif.data_in    <= tr.data_in;
+            vif.addr​       <= tr.addr​;
+            vif.reg_sel​    <= tr.reg_sel​;
+            vif.instru     <= tr.instru;
+            vif.valid_reg  <= '1;
+            vif.valid_ula <= '1;
+            if(!vif.valid_out) @(posedge vif.valid_out);
 
     endtask : driver_transfer
 

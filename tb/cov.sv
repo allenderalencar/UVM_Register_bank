@@ -46,6 +46,6 @@ class cov extends uvm_component;
     // resp_cover.sample();
     //$display("cobertura:%d",$get_coverage());
     // if(($get_coverage() == 100) || (cont == limite))
-    if(cont == 10) running_phase.drop_objection(this);
+    if(cont == 1000) running_phase.drop_objection(this);
   endfunction: write
 endclass : cov
