@@ -5,6 +5,11 @@ This repository has the project of verification team of Federal University of Ca
 ## Getting Started
 
 git clone https://github.com/allenderalencar/UVM_Register_bank.git
+cd UVM_Register_bank
+cds
+make
+
+*to view waves: make view_waves
 
 ### Prerequisites
 
