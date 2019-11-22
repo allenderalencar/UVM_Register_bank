@@ -1,0 +1,40 @@
+//
+// File created by:  xrun
+// Do not modify this file
+//
+-INPUT
+"@source /usr/local/cds/XCELIUM1809/tools/methodology/UVM/CDNS-1.1d/additions/sv/files/tcl/uvm_sim.tcl"
++uvm_set_config_int=*,recording_detail,1
+-uvmhome
+/usr/local/cds/XCELIUM1809/tools/methodology/UVM/CDNS-1.1d
+-sv_lib
+/usr/local/cds/XCELIUM1809/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmpli.so
+-sv_lib
+./tb/test.so
++UVM_TESTNAME=test
+-COVTEST
+test
+-INPUT
+./shm.tcl
+-COVOVERWRITE
+-NOWARN
+NONPRT
+-MESSAGES
+-SV_LIB
+/usr/local/cds/XCELIUM1809/tools/methodology/UVM/CDNS-1.1d/additions/sv/lib/64bit/libuvmdpi.so
++EMGRLOG
+xrun.log
+-XLSTIME
+1574433796
+-XLKEEP
+-XLMODE
+./xcelium.d/run.lnx8664.18.09.d
+-RUNMODE
+-CDSLIB
+./xcelium.d/run.lnx8664.18.09.d/cds.lib
+-HDLVAR
+./xcelium.d/run.lnx8664.18.09.d/hdl.var
+-XLNAME
+xrun
+-XLVERSION
+"TOOL:	xrun(64)	18.09-s011"

@@ -1,4 +1,4 @@
-interface interface_if(input clk_ula, rst);
+interface interface_if(input clk, rst);
 
 	logic   valid_ula;
   	logic   valid_reg;
@@ -10,7 +10,7 @@ interface interface_if(input clk_ula, rst);
 	logic   [31:0] data_out;
 	logic          valid_out;
 
-	modport mst(input clk_ula, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
-	modport slv(input clk_ula, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
+	modport mst(input clk, rst, output A, data_in​, addr​, reg_sel​, instru​, input valid_out, data_out);
+	modport slv(input clk, rst, A, data_in​, addr​, reg_sel​, instru, output​ valid_out, data_out);
 		
 endinterface

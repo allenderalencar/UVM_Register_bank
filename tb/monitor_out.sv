@@ -43,9 +43,9 @@ class monitor_out extends uvm_monitor;
 	virtual task monitoramento();
 		forever
 		begin
-			@(posedge vif.clk iff((vif.valid_o == 1'b1) && (vif.ready_o == 1'b1)));
+			@(posedge vif.clk iff(vif.valid_out == 1'b1));
 			->begin_record;
-			tr.data_out_o = vif.data_out_o;
+			tr.data_out_o = vif.data_out;
 			->end_record;
 			mon_out_tr_analysis_port.write(tr);
 		end

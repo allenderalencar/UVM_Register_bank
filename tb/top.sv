@@ -1,17 +1,17 @@
 module top;
 
-	import 		uvm_pkg::*;
 	`include "uvm_macros.svh"
+	import 		uvm_pkg::*;
 	import 		bank_pkg::*;
 	parameter 	min_trans = 100;
 
 	logic clk;
 	logic rst;
-	interface_if dut_if (.clk(clk), .rstn(rst));
+	interface_if dut_if (.clk(clk), .rst(rst));
 
 	datapath dut (
-		.clk_ula(dut_if.clk_ula),
-		.clk_reg(dut_if.clk_reg),
+		.clk_ula(dut_if.clk),
+		.clk_reg(dut_if.clk),
 		.rst(dut_if.rst),
 
 		.valid_reg(dut_if.valid_reg),

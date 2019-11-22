@@ -4,7 +4,7 @@ package bank_pkg;
 
 `include "./tb/transaction_in.sv"
 `include "./tb/transaction_out.sv"
-`include "./tb/sequence.sv"
+`include "./tb/sequence_in.sv"
 
 `include "./tb/driver_in.sv"
 `include "./tb/monitor_in.sv"
@@ -20,4 +20,5 @@ package bank_pkg;
 //Attetion, the sequence should be done with dependencies 
 //To be refenrencied, it shoud be instantiated before
 
-endpackage : pkg
+endpackage : bank_pkg
+

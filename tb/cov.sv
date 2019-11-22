@@ -43,10 +43,9 @@ class cov extends uvm_component;
   function void write (transaction_out t);
     cont ++;
     resp.copy(t);
-    resp_cover.sample();
-
+    // resp_cover.sample();
     //$display("cobertura:%d",$get_coverage());
-    if(($get_coverage() == 100) || (cont == limite))
-      running_phase.drop_objection(this);
+    // if(($get_coverage() == 100) || (cont == limite))
+    if(cont == 10) running_phase.drop_objection(this);
   endfunction: write
 endclass : cov

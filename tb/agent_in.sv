@@ -13,7 +13,7 @@ class agent_in extends uvm_agent;
 
     function new(string name = "agent_in", uvm_component parent = null);
         super.new(name, parent);
-        agt_req_port = new("agt_req_port", this);
+        agt_i_tr_analysis_port = new("agt_i_tr_analysis_port", this);
     endfunction
 //===================================================================
 //BUILD PHASE
@@ -31,7 +31,7 @@ class agent_in extends uvm_agent;
 //===================================================================
     virtual function void connect_phase(uvm_phase phase);
         super.connect_phase(phase);
-        mon.req_port.connect(agt_req_port);
+        mon.agt_i_tr_analysis_port.connect(agt_i_tr_analysis_port);
         drv.seq_item_port.connect(sqr.seq_item_export);
     endfunction
 

@@ -33,13 +33,13 @@ class driver_in extends uvm_driver #(transaction_in);
     virtual task reset_signals();
         wait (vif.rst === 0);
         forever begin
-            vif.A          <= '0;
-            vif.data_in    <= '0;
-            vif.addr​       <= '0;
-            vif.reg_sel​    <= '0;
-            vif.instru     <= '0;
-            vif.valid_ula  <= '0;
-            vif.valid_reg  <= '0;
+            vif.A          = '0;
+            vif.data_in    = '0;
+            vif.addr​       = '0;
+            vif.reg_sel​    = '0;
+            vif.instru     = '0;
+            vif.valid_ula  = '0;
+            vif.valid_reg  = '0;
             @(negedge vif.rst);
         end
     endtask : reset_signals
@@ -61,14 +61,13 @@ class driver_in extends uvm_driver #(transaction_in);
     virtual task driver_transfer(transaction_in tr);
         @(posedge vif.clk);
         $display("",);
-        vif.A         <= tr.data;
+        vif.A         <= tr.dt_A;
         vif.valid_ula <= '1;
 
         //////////////////////////////
         ///continuar isso aqui taok///
         //////////////////////////////
 
-        @(posedge vif.busy_o);
     endtask : driver_transfer
 
 endclass

@@ -15,6 +15,7 @@ class agent_out extends uvm_agent;
 
 	function new(string name, uvm_component parent);
 		super.new(name, parent);
+		agt_o_tr_analysis_port = new("agt_o_tr_analysis_port", this);
 	endfunction
 //===================================================================
 //BUILD PHASE
@@ -22,7 +23,6 @@ class agent_out extends uvm_agent;
 	function void build_phase(uvm_phase phase);
 		super.build_phase(phase);
 
-		agt_out_tr_analysis_port = new("agt_out_tr_analysis_port", this);
 
 		monitor = monitor_type::type_id::create("monitor", this);
 	endfunction
@@ -31,7 +31,7 @@ class agent_out extends uvm_agent;
 //===================================================================
 	function void connect_phase(uvm_phase phase);
 		super.connect_phase(phase);
-		monitor.mon_out_tr_analysis_port.connect(agt_out_tr_analysis_port);
+		monitor.mon_out_tr_analysis_port.connect(agt_o_tr_analysis_port);
 	endfunction
 
 endclass

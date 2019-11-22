@@ -2,12 +2,12 @@ class monitor_in extends uvm_monitor;
 
     interface_vif  vif;
     transaction_in tr ;
-    uvm_analysis_port #(transaction_in) req_port;
+    uvm_analysis_port #(transaction_in) agt_i_tr_analysis_port;
     `uvm_component_utils(monitor_in)
 
     function new(string name, uvm_component parent);
         super.new(name, parent);
-        req_port = new ("req_port", this);
+        agt_i_tr_analysis_port = new ("agt_i_tr_analysis_port", this);
     endfunction
 // ===================================================================
 // BUILD PHASE
@@ -33,18 +33,18 @@ class monitor_in extends uvm_monitor;
 // COLETAR TRANSAÇÕES
 // ===================================================================
     virtual task collect_transactions(uvm_phase phase);
-        wait (vif_in.rst === 0);
-        @(posedge vif_in.rst);
+        wait (vif.rst === 0);
+        @(posedge vif.rst);
         forever begin
 
-            @(posedge vif.clk_ula) begin
+            @(posedge vif.clk) begin
                 if(!vif.valid_out)
                     begin
                         @(posedge vif.valid_out);
                         begin_tr(tr, "req");
-                        tr.data = vif.dt_i;
-                        req_port.write(tr);
-                        @(negedge vif.clk_ula);
+                        // tr.data_in = vif.data_in;
+                        agt_i_tr_analysis_port.write(tr);
+                        @(negedge vif.clk);
                         end_tr(tr);
                     end
             end

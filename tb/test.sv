@@ -1,6 +1,6 @@
 class test extends uvm_test;
-  env env;
-  bank_sequence seq;
+  env envir;
+  sequence_in seq;
 
 //===================================================================
 //FACTORY
@@ -16,16 +16,16 @@ class test extends uvm_test;
 //===================================================================
   virtual function void build_phase(uvm_phase phase);
     super.build_phase(phase);
-    env = env::type_id::create("env", this);
-    seq = sequence::type_id::create("seq", this);
+    envir = env::type_id::create("envir", this);
+    seq = sequence_in::type_id::create("seq", this);
   endfunction
 //===================================================================
 //RUN PHASE
 //===================================================================
   task run_phase(uvm_phase phase);
     fork
-      seq.start(env.agent_in.sequencer);
+      seq.start(envir.agt_in.sqr);
     join
   endtask: run_phase
 
-endclass : test
+endclass
